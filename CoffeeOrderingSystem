@@ -1,0 +1,55 @@
+package coffeeorderingsystem;
+
+/**
+ *
+ * @author user
+ */
+interface Preparable{
+    void displayIngredients();
+    void displayDirection();
+}
+abstract class Coffee{
+   protected String Name;
+   protected char sizeOption;
+   protected double price;
+   abstract void calcPrice();
+   abstract void displayInfo();
+    
+}
+Class RegularCoffee extends Coffee implements Preparable{
+ @Override
+ public Double caffeineLevel(){
+System.out.println("CaffeineLevel");
+}
+ @Override
+ public Boolean hasMilk(){
+System.out.println("Milk");
+ }
+}
+class SeasonalCoffee extends coffee implements Preparable{
+    @Override 
+    public String season(){
+        System.out.println("Season");
+}
+}     
+
+    
+    public class CoffeeOrderingSystem{
+    public static void main(String[] args) {
+        Coffee[] coffee={
+            new RegularCoffee(),
+            new SeasonalCoffee()
+        };
+    }
+    for(Coffee coffee: coffee){
+        if(coffee instanceof RegularCoffee){
+            ((RegularCoffee)Coffee).caffeineLevel();
+            ((RegularCoffee)Coffee).hasMilk();
+        }else if (coffee instanceof SeasonalCoffee){
+            ((SeasonalCoffee)Coffee).Season();
+           
+    
+}
+        System.out.println();
+    }
+}
